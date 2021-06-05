@@ -1,0 +1,42 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  height: calc(100vh - 5rem);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    height: 32.5rem;
+    width: 20.8rem;
+  }
+}
+
+.contentContainer {
+  max-width: 600px;
+
+  p {
+    font-size: 2rem;
+    line-height: 3rem;
+
+    span{
+      color: var(--cyan-500);
+    }
+  }
+
+  p:first-child {
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+    font-weight: 900;
+    margin-top: 2.5rem;
+
+    span {
+      color: var(--cyan-500);
+    }
+  }
+}
