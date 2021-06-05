@@ -1,8 +1,10 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { Header } from "../components/Header";
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
 import styles from "./home.module.scss";
+
+const DAILY = 60 * 60 * 24;
 
 interface Product {
   productId: string;
@@ -41,7 +43,8 @@ export default function Home({ product }: HomeProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+
+export const getStaticProps: GetStaticProps = async () => {
   const {
     product,
     unit_amount,
@@ -59,6 +62,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
           }
         ).format(unit_amount / 100)
       },
-    }
+    },
+    revalidate: DAILY,
   }
 }
