@@ -8,9 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-react": "^7.21.5",
     "next": "10.2.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.2.0",
     "sass": "^1.34.1"
   },
   "devDependencies": {
@@ -18,7 +22,13 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@types/node": "^15.12.0",
     "@types/react": "^17.0.9",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "husky": "^6.0.0",
+    "prettier": "^2.3.1",
     "typescript": "^4.3.2"
   }
 }
