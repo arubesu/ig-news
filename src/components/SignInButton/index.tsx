@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa'
 import { FiX } from 'react-icons/fi'
 
 export const SignInButton: React.FC = () => {
-  const isUserLoggedIn = true;
+  const isUserLoggedIn = false;
 
   return isUserLoggedIn ? (
     <button className={styles.signInButton}>
