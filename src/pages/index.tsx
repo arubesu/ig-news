@@ -1,5 +1,4 @@
 import { GetStaticProps } from "next";
-import { Header } from "../components/Header";
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
 import styles from "./home.module.scss";
@@ -17,7 +16,6 @@ interface HomeProps {
 export default function Home({ product }: HomeProps) {
   return (
     <>
-      <Header />
       <main className={styles.container}>
         <section className={styles.contentContainer}>
           <p>👏 Hey, Welcome </p>
