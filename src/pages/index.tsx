@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const {
     product,
     unit_amount,
-  } = await stripe.prices.retrieve('price_1Iz6VtFHlQfl1xDpAPFy9ILk');
+  } = await stripe.prices.retrieve(process.env.STRIPE_PRICE_ID);
 
   return {
     props: {
