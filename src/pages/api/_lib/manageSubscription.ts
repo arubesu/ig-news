@@ -9,25 +9,7 @@ interface saveSubscriptionParameters {
 
 export const saveSubscription = async ({ subscriptionId, customerId }: saveSubscriptionParameters) => {
 
-  const userRef = await faunadbClient.query(
-    q.Select(
-      'ref',
-      q.Get(
-        q.Match(
-          q.Index('user_by_stripeCustomerId'),
-          customerId
-        ))
-    )
-  );
-
-  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-
-  const subscriptionData = {
-    id: subscription.id,
-    userId: userRef,
-    status: subscription.status,
-    priceId: subscription.items.data[0].price.id,
-  }
+  const subscriptionData = await getUserSubscriptionData(customerId, subscriptionId);
 
   await faunadbClient.query(
     q.Create(
@@ -37,5 +19,57 @@ export const saveSubscription = async ({ subscriptionId, customerId }: saveSubsc
       }
     )
   );
+}
+
+export const updateSubscription = async ({ subscriptionId, customerId }: saveSubscriptionParameters) => {
+
+  const subscriptionData = await getUserSubscriptionData(customerId, subscriptionId);
+
+  await faunadbClient.query(
+    q.Replace(
+      q.Select(
+        'ref',
+        q.Get(
+          q.Match(
+            q.Index('subscription_by_id'),
+            subscriptionId
+          )
+        )
+      ),
+      {
+        data: subscriptionData
+      },
+    ));
 
 }
+
+async function getUserSubscriptionData(customerId: string, subscriptionId: string) {
+  const userRef = await getUserRefByCustomerId(customerId);
+
+  return await getStripeSubscription(subscriptionId, userRef);
+}
+
+async function getStripeSubscription(subscriptionId: string, userRef: object) {
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+
+  return {
+    id: subscription.id,
+    status: subscription.status,
+    userRef,
+    priceId: subscription.items.data[0].price.id,
+  };
+}
+
+async function getUserRefByCustomerId(customerId: string) {
+  return await faunadbClient.query(
+    q.Select(
+      'ref',
+      q.Get(
+        q.Match(
+          q.Index('user_by_stripeCustomerId'),
+          customerId
+        ))
+    )
+  );
+}
+
