@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image'
 import styles from './styles.module.scss';
 import { SignInButton } from '../SignInButton';
+import { ActiveLink } from '../ActiveLink';
 
 export const Header: React.FC = () => {
   return (
@@ -14,13 +15,18 @@ export const Header: React.FC = () => {
         />
 
         <nav>
-          <a className={styles.active}>Home</a>
-          <a>Posts</a>
+          <ActiveLink href="/" activeClassName={styles.active}>
+            <a>Home</a>
+          </ActiveLink>
+          <ActiveLink href="/posts" activeClassName={styles.active}>
+            <a>Posts</a>
+          </ActiveLink>
+
         </nav>
         <SignInButton />
       </div>
 
-    </header>
+    </header >
   )
 }
 
