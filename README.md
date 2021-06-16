@@ -50,6 +50,28 @@ The application layout is available on Figma:
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
 
+## Home Page
+
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+
+ <img  alt="Home Page"  title="#HomePage"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/home.png"  width="400px">
+
+ ## Posts
+
+ <img  alt="Posts"  title="#Posts"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/posts.png"  width="400px">
+
+## Posts when user is not signed in
+
+ <img  alt="Post Preview 1"  title="#post-preview-1"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/post-preview-1.png"  width="400px">
+
+ <img  alt="Post Preview 2"  title="#post-preview-2"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/post-preview-2.png"  width="400px">
+
+ ## Posts when user signed in and has an active subscription
+
+ <img  alt="Post full 1"  title="#post-preview-1"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/post-full-1.png"  width="400px">
+
+ <img  alt="Post full 2"  title="#post-full-2"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/post-preview-2.png"  width="400px">
+
 
 ---
 
