@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="ig.News" title="#ig-news" src="./public/logo-full.svg" />
+    <img alt="ig.News" title="#ig-news" src="./public/images/logo.svg" />
 </h1>
 
 <h3 align="center"> Read react news
