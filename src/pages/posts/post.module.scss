@@ -45,4 +45,30 @@
       margin: 0.5rem 0;
     }
   }
+
+  &.previewContent {
+    background: linear-gradient(var(--gray-100), transparent);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.continueReading {
+  background: var(--gray-850);
+  text-align: center;
+  border-radius: 100px;
+  padding: 2rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 4rem 0 2rem;
+
+  a {
+    color: var(--yellow-500);
+    margin-left: .5rem;
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
 }
