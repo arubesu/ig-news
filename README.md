@@ -31,14 +31,13 @@
 
 
 ## About
-
-
+Read news about react world
 
 ---
 
 ## Features
-
-
+- Authentication
+- Purchase a subscription
 ---
 
 ## Layout
@@ -75,6 +74,13 @@ $ cd ig-news
 # install the dependencies
 $ npm install
 
+
+## Setting the environment variables
+# rename .env.example to .env.local
+$ mv .env.example .env.local
+
+#follow the instructions in .env.example file and then run the application
+
 # Run the application in development mode
 $ npm run dev
 
@@ -89,7 +95,11 @@ The following tools were used in the construction of the project:
 
 #### **Website**  ([NEXT js](https://nextjs.org/) ) with ([Typescript](https://www.typescriptlang.org/))
 
--   **[React](https://reactjs.org/)**
+-   **[react](https://reactjs.org/)**
+-   **[prismic](https://prismic.io/docs)**
+-   **[axios](https://github.com/axios/axios)**
+-   **[fauna](https://fauna.com)**
+-   **[stripe](https://stripe.com/docs)**
 
 > See the file  [package.json](https://github.com/arubesu/ig-news/blob/master/package.json)
 
