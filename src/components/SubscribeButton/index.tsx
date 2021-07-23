@@ -37,7 +37,7 @@ export const SubscribeButton: React.FC = () => {
     <button
       className={styles.subscribeButton}
       onClick={handleSubscribe}>
-      Subcribe now
+      Subscribe now
     </button>
   )
 }
