@@ -48,11 +48,8 @@ The application layout is available on Figma:
   <img alt="Figma Layout" src="https://img.shields.io/badge/Layout%20-Figma-%2304D361">
 </a>
 
-<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
 
 ## Home Page
-
-<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
 
  <img  alt="Home Page"  title="#HomePage"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/home.png"  width="400px">
 
@@ -71,9 +68,6 @@ The application layout is available on Figma:
  <img  alt="Post full 1"  title="#post-preview-1"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/post-full-1.png"  width="400px">
 
  <img  alt="Post full 2"  title="#post-full-2"  src="https://raw.githubusercontent.com/arubesu/ig-news/main/screenshots/post-preview-2.png"  width="400px">
-
-
----
 
 ## How it works
 
