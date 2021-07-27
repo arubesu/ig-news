@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { mocked } from "ts-jest/utils";
-import { useSession, signOut } from "next-auth/client";
+import { useSession, signOut, signIn } from "next-auth/client";
 import { SignInButton } from '.'
 
 jest.mock('next-auth/client')
@@ -58,6 +58,25 @@ describe('SignInButton Component', () => {
 
     fireEvent.click(signOutButton)
     expect(signOutMocked).toBeCalled()
+  })
+
+  it('allow to sign in when user is logged out', () => {
+    const useSessionMocked = mocked(useSession)
+
+    useSessionMocked.mockReturnValueOnce([null, false])
+
+    const signInMocked = mocked(signIn);
+
+    render(
+      <SignInButton />
+    )
+
+    const signInButton = screen.getByRole('button', {
+      name: /Sign in with GitHub/i
+    })
+
+    fireEvent.click(signInButton)
+    expect(signInMocked).toBeCalled()
   })
 })
 
