@@ -1,5 +1,6 @@
 import { screen, render } from "@testing-library/react";
 import { mocked } from "ts-jest/utils";
+import { useSession } from "next-auth/client";
 import Posts, { getStaticProps } from "../../pages/posts";
 import { getPrismicClient } from "../../services/prismic";
 
@@ -13,9 +14,16 @@ const posts = [
 ]
 
 jest.mock('../../services/prismic')
+jest.mock('next-auth/client')
 
 describe('Posts page', () => {
   it('renders correctly', () => {
+    const useSessionMocked = mocked(useSession)
+
+    useSessionMocked.mockReturnValueOnce([{
+      activeSubscription: 'fake-active-subscription',
+    }] as any)
+
     render(<Posts posts={posts} />)
 
     expect(screen.getByText(posts[0].title)).toBeInTheDocument()
