@@ -28,4 +28,23 @@ describe('Post Preview page', () => {
     expect(screen.getByText(post.updatedAt)).toBeInTheDocument()
     expect(screen.getByText('Wanna continue reading ?')).toBeInTheDocument()
   });
+
+  it('redirect to full post page when user has an active subscription', async () => {
+    const useSessionMocked = mocked(useSession)
+    const useRouterMocked = mocked(useRouter)
+
+    useSessionMocked.mockReturnValueOnce([{
+      activeSubscription: 'fake-active-subscription',
+    }] as any)
+
+    const mockedPush = jest.fn();
+
+    useRouterMocked.mockReturnValueOnce({
+      push: mockedPush,
+    } as any)
+
+    render(<PostPreview post={post} />)
+
+    expect(mockedPush).toBeCalledWith(`/posts/${post.slug}`);
+  });
 })
