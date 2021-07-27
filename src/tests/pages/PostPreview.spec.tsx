@@ -47,4 +47,43 @@ describe('Post Preview page', () => {
 
     expect(mockedPush).toBeCalledWith(`/posts/${post.slug}`);
   });
+
+  it('loads initial data when user has subscription', async () => {
+    const getSessionMocked = mocked(getSession)
+    const getPrismicClientMocked = mocked(getPrismicClient)
+
+    getSessionMocked.mockResolvedValueOnce({
+      activeSubscription: 'fake-subscription',
+    })
+
+    getPrismicClientMocked.mockResolvedValueOnce({
+      getByUID: jest.fn().mockResolvedValueOnce({
+        data: {
+          title: [{
+            type: 'heading',
+            text: post.title
+          }],
+          content: [{
+            type: 'paragraph',
+            text: 'post-content-1'
+          }],
+        },
+        last_publication_date: '2021-07-26'
+      })
+    })
+
+    const response = await getStaticProps({
+      params: {
+        slug: post.slug
+      }
+    } as any)
+
+    expect(response).toEqual(
+      expect.objectContaining({
+        props: {
+          post,
+        }
+      })
+    )
+  });
 })
